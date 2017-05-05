@@ -9,3 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+Chatroom.Repo.delete_all Chatroom.User
+
+Chatroom.User.changeset(%Chatroom.User{}, %{name: "test", email: "test@example.com", password: "password", password_confirmation: "password"})
+|> Chatroom.Repo.insert!
